@@ -8,7 +8,7 @@
 body {
   overflow-x: hidden;
   position: relative; }
-
+  
 body {
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -709,3 +709,7 @@ textarea {
     height: 50px;
     border-radius: 50%;
     background: rgba(59, 93, 80, 0.2); }
+
+.form-group label{
+  color: white !important;
+}
