@@ -419,6 +419,65 @@
 					  </div>
 					</div>
 	  
+					<form id="formulario">
+					  <div class="row">
+						<div class="col-6">
+						  <div class="form-group">
+							<label class="text-black" for="fname">Nombre</label>
+							<input type="text" class="form-control" id="fname">
+						  </div>
+						</div>
+						<div class="col-6">
+						  <div class="form-group">
+							<label class="text-black" for="lname">Apellido</label>
+							<input type="text" class="form-control" id="lname">
+						  </div>
+						</div>
+					  </div>
+					  <div class="form-group">
+						<label class="text-black" for="email">Correo electronico</label>
+						<input type="email" class="form-control" id="email">
+					  </div>
+	  
+					  <div class="form-group mb-5">
+						<label class="text-black" for="message">Mensaje</label>
+						<textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
+					  </div>
+	  
+					  <button type="submit" class="btn btn-primary-hover-outline">Enviar</button>
+					</form>
+
+					<script>
+						const formulario = document.getElementById('formulario');
+
+						formulario.addEventListener('submit', (event) => {
+							event.preventDefault();
+
+							const nombre = document.getElementById('lname').value;
+							const email = document.getElementById('email').value;
+							const mensaje = document.getElementById('message').value;
+
+							const datos = {
+								nombre: nombre,
+								email: email,
+								mensaje: mensaje
+							};
+
+							fetch('https://landing-page.firebaseio.com/collection.json', {
+								method: 'POST',
+								body: JSON.stringify(datos),
+								headers: {
+									'Content-Type': 'application/json'
+								}
+							})
+							.then(respuesta => respuesta.json())
+							.then(datos => {
+								console.log(datos); // Imprimir la respuesta del servidor
+							})
+							.catch(error => console.error(error));
+						});
+					</script>
+	  
 				  </div>
 	  
 				</div>
@@ -433,29 +492,6 @@
 		<!-- Start Footer Section -->
 		<footer class="footer-section">
 			<div class="container relative">
-
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="subscription-form">
-							<h3 class="d-flex align-items-center"><span class="me-1"><img src="images/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
-
-							<form action="#" class="row g-3">
-								<div class="col-auto">
-									<input type="text" class="form-control" placeholder="Enter your name">
-								</div>
-								<div class="col-auto">
-									<input type="email" class="form-control" placeholder="Enter your email">
-								</div>
-								<div class="col-auto">
-									<button class="btn btn-primary">
-										<span class="fa fa-paper-plane"></span>
-									</button>
-								</div>
-							</form>
-
-						</div>
-					</div>
-				</div>
 
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
