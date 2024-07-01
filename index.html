@@ -427,12 +427,6 @@
 							<input type="text" class="form-control" id="fname">
 						  </div>
 						</div>
-						<div class="col-6">
-						  <div class="form-group">
-							<label class="text-black" for="lname">Apellido</label>
-							<input type="text" class="form-control" id="lname">
-						  </div>
-						</div>
 					  </div>
 					  <div class="form-group">
 						<label class="text-black" for="email">Correo electronico</label>
@@ -453,7 +447,7 @@
 						formulario.addEventListener('submit', (event) => {
 							event.preventDefault();
 
-							const nombre = document.getElementById('lname').value;
+							const nombre = document.getElementById('fname').value;
 							const email = document.getElementById('email').value;
 							const mensaje = document.getElementById('message').value;
 
